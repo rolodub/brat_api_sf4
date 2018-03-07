@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Découvrez et redécouvrez votre ville !" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Bratislaboys" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd2p7r0jh2apbfUvJWw1THUJTbr0wAziI&callback=initMap" type="text/javascript"></script>
+    <script async type="text/javascript">
+        var lat = 48.852969;
+        var lon = 2.349903;
+        var map = null;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: new google.maps.LatLng(lat, lon),
+                zoom: 15,
+                streetViewControl: false,
+            });
+
+            var villes = {
+                "Paris": { "lat": 48.852969, "lon": 2.349903 },
+                "P2": { "lat": 48.852969, "lon": 2.45 },
+                "Brest": { "lat": 48.383, "lon": -4.500 },
+                "Quimper": { "lat": 48.000, "lon": -4.100 },
+                "Bayonne": { "lat": 43.500, "lon": -1.467 }
+            }
+
+            var contentString1 = '<div id="content">' + '<div id="siteNotice">' + '</div>' + '<h1 id="firstHeading" class="firstHeading">test</h1>' + '<div id="bodyContent">' + '<p><b>test</b>.</p>' + '<p>Attribution: Google, <a href="https://www.google.fr">' + 'https://www.google.fr</a> ' + '(last visited June 22, 2009).</p>' + '</div>' + '</div>';
+            var infowindow = new google.maps.InfoWindow({ content: contentString1 }, { map: map });
+            var image = {url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',size: new google.maps.Size(20, 32)}
+            
+            var tableau = [];
+
+            for (ville in villes) {
+
+                var marker = new google.maps.Marker({
+                    position: { lat: villes[ville].lat, lng: villes[ville].lon },
+                    title: 'Cliquer pour en savoir plus',
+                    map: map,
+                    content: contentString1,
+                    icon: image, 
+                    draggable : false,
+                });
+
+                tableau.push(marker);
+
+                /*tableau[i].onclick = function(){infowindow.open(map, tableau[i]);}
+
+
+               /* tableau[i].addEventListener('click', function () {
+                    infowindow.open(map, tableau[i]);
+                });*/
+
+
+            }
+
+            /*tableau[0].click(function(){
+                alert('caca');
+            });*/
+
+
+
+            /*tableau[1].onclick = function(){infowindow.open(map, tableau[1]);};*/
+            /*for (var j=0;j<tableau.length;j++){
+                tableau[j].addListener('click', function () {
+                    infowindow.open(map, tableau[j]);
+                });
+            }*/
+
+            /*
+            tableau[0].addListener('click', function () {
+                    infowindow.open(map, tableau[0]);
+                });
+
+            tableau[1].addListener('click', function () {
+                infowindow.open(map, tableau[1]);
+                });
+
+            tableau[2].addListener('click', function () {
+                infowindow.open(map, tableau[2]);
+                });
+
+            tableau[3].addListener('click', function () {
+                infowindow.open(map, tableau[3]);
+                });
+        
+            tableau[4].addListener('click', function () {
+                infowindow.open(map, tableau[4]);
+                });*/
+
+            tableau.forEach(element => {
+                element.addListener('click', function () {
+                    infowindow.open(map, element);
+                });
+            });
+            map.addListener('click', function (e) {
+                placeMarkerAndPanTo(e.latLng, map);
+            });
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('On vous a trouvé!');
+                    map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+
+        }
+
+
+
+        window.onload = function () {
+            // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+            initMap();
+        };
+    </script>
+    <style>
+        #map {
+            height: 95%;
+        }
+        
+        html,
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <title>BratislavaMarkers</title>
+</head>
+
+<body>
+    <div id="map"></div>
+    <header>
+        <nav></nav>
+    </header>
+    <section class="content">
+    </section>
+    <footer>
+        <nav class="menu">
+            <input type="radio" name="menu" id="un" checked>
+            <input type="radio" name="menu" id="deux">
+            <input type="radio" name="menu" id="trois">
+            <input type="radio" name="menu" id="quatre">
+            <input type="radio" name="menu" id="cinq">
+            <div class="list">
+                <div class="link-wrap">
+                    <label for="un">
+                        <i class="fa fa-home"></i>
+                    </label>
+                    <label for="deux">
+                        <i class="fa fa-search"></i>
+                    </label>
+                    <label for="trois">
+                        <i class="fa fa-map-marker"></i>
+                    </label>
+                    <label for="quatre">
+                        <i class="fa fa-user"></i>
+                    </label>
+                    <label for="cinq">
+                        <i class="fa fa-plus"></i>
+                    </label>
+                </div>
+            </div>
+        </nav>
+    </footer>
+</body>
+
+</html>
