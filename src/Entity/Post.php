@@ -7,6 +7,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ApiResource
+ * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  */
 class Post
@@ -98,4 +99,13 @@ class Post
      * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
      */
     public $user;
+
+    /** @ORM\OneToMany(targetEntity="UserPostComment", mappedBy="post") */
+    protected $contribComments;
+
+    /** @ORM\OneToMany(targetEntity="PostCategory", mappedBy="post") */
+    protected $postCategory;
+    
+    /** @ORM\OneToMany(targetEntity="PostMedia", mappedBy="post") */
+    protected $postMedia;
 }
