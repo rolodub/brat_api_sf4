@@ -147,7 +147,7 @@ input[name="menu"]{
 .list{
 	width: 100%;
 	height: 56px;
-	background: rgb(88, 151, 245);
+	background: rgb(143, 202, 254);
 	position: relative;
 }
 .list .link-wrap{
@@ -171,7 +171,7 @@ input[name="menu"]{
     font-size:3rem;
     -webkit-transform: translateY(-1rem);
     transform: translateY(-1rem);
-    background-color:rgb(88, 151, 245);
+    background-color:rgb(143, 202, 254);
     border-radius:50%;
 }
 .list .link-wrap>label>i {
@@ -244,3 +244,5 @@ font-size:0.6rem;
     background: #4CAF50; /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
+
+
