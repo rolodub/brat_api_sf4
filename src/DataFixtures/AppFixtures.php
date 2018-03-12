@@ -23,6 +23,7 @@ class AppFixtures extends Fixture
             //password = roropass
             $user->setPassword('$2y$10$K40Rz8hhZUP/meGpoq/VuerDD4GXhEXGKrZ8gvljGsyrjyUth55Mq');
             $user->setEmail('roro@gmail.com');
+            $user->setApiToken('apitoken');
             $manager->persist($user);
         }
 

@@ -21,6 +21,7 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="integer")
      */
     private $id;
+    private $plainPassword;
 
     /**
      * @return mixed
@@ -79,9 +80,25 @@ class User implements UserInterface, \Serializable
      */
     private $isActive;
 
+
+    /** @ORM\OneToMany(targetEntity="UserPostComment", mappedBy="users") */
+    protected $contribComments;
+
+    /** @ORM\OneToMany(targetEntity="UserPostLike", mappedBy="users") */
+    protected $postLike;
+
     private $salt;
     private $roles;
     private $product;
+
+    /**
+
+     * @ORM\Column(type="string", unique=true)
+
+     */
+
+    private $apiToken;
+
     /**
      * Returns the roles granted to the user.
      *
@@ -100,7 +117,17 @@ class User implements UserInterface, \Serializable
      */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        $roles = $this->roles;
+
+        // guarantees that a user always has at least one role for security
+
+        if (empty($roles)) {
+
+            $roles[] = 'ROLE_USER';
+
+        }
+
+        return array_unique($roles);
     }
 
     /**
@@ -189,13 +216,14 @@ class User implements UserInterface, \Serializable
 
     public function eraseCredentials()
     {
-        // TODO: Implement eraseCredentials() method.
-        return null;
+        // if you had a plainPassword property, you'd nullify it here
+
+         $this->plainPassword = null;
     }
 
     public function __construct()
     {
-        $this->posts = new ArrayCollection(); // Initialize $offers as an Doctrine collection
+        $this->posts = new ArrayCollection(); // Initialize $post as an Doctrine collection
         $this->isActive = true;
 
     }
@@ -227,6 +255,22 @@ class User implements UserInterface, \Serializable
             // see section on salt below
             // $this->salt,
         ));
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getApiToken()
+    {
+        return $this->apiToken;
+    }
+
+    /**
+     * @param mixed $apiToken
+     */
+    public function setApiToken($apiToken): void
+    {
+        $this->apiToken = $apiToken;
     }
 
     /**
