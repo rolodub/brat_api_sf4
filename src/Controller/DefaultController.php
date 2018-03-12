@@ -19,7 +19,7 @@ class DefaultController extends Controller
      */
     public function default()
     {
-        return $this->render('base.html.twig');
+        return $this->render('index.html.twig');
 //        return $this->render("index.vue");
     }
 }
