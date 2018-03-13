@@ -6,7 +6,9 @@ html {
     height:100%;
 }
 body {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Arial';
+    font-size:auto;
+    color:#2699FB;
     height:100%;
 }
 body, header, nav, section, footer {
@@ -59,16 +61,13 @@ a.active {
 /* ////////////////////////////// */
 /* CSS Tanguy - Page contribution */
 /* ////////////////////////////// */
-section.content {
+.contribuerContainer {
     display:flex;
     flex-flow: column nowrap;
     align-items:stretch;
-    background:url('images/google-maps.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
     height:100%;
 }
-.content a.retour {
+.contribuerContainer a.retour {
     display:block;
     position:absolute;
     top:0;
@@ -76,13 +75,13 @@ section.content {
     margin:0.5rem;
     padding:0.5rem;
 }
-.content h1 {
+.contribuerContainer h1 {
     font-size:1rem;
     width:100%;
     text-align:center;
     color: rgb(88, 151, 245);
 }
-.content ul {
+.contribuerContainer ul {
     display:flex;
     flex-flow:row nowrap;
     justify-content: space-around;
@@ -91,14 +90,14 @@ section.content {
     list-style: none;
     padding:0;
 }
-.content ul li {
+.contribuerContainer ul li {
     text-align:center;
     display:flex;
     flex-flow:column wrap;
     justify-content: space-around; 
     color:rgb(88, 151, 245);
 }
-.content ul i {
+.contribuerContainer ul i {
     font-size:1.5rem;
     padding:1rem;
     width:4rem;
@@ -107,7 +106,7 @@ section.content {
     background-color:rgba(255,255,255,1);
     border-radius:50%; 
 }
-.content .disclaimer {
+.contribuerContainer .disclaimer {
     position:absolute;
     background-color:rgba(255,255,255,1);
     width:90%;
@@ -116,14 +115,14 @@ section.content {
     margin:0 5%;
     padding:2.5%;
 }
-.content .disclaimer p {
+.contribuerContainer .disclaimer p {
     color:rgba(88, 151, 245, 0.8);
 }
 p.location {
     color:rgba(88, 151, 245, 1);
     font-weight:700;
 }
-.content .disclaimer hr {
+.contribuerContainer .disclaimer hr {
     width:75%;
     color:rgb(155,155,155);
 }
@@ -133,259 +132,25 @@ p.location {
 /* ////////////////////////////// */
 
 #map {
-    height:100%;
+    height:50%;
 }
-.content {
-  display:flex;
-  flex-flow: column nowrap;
-  align-items:stretch;
-  width:90%;
-  margin:0 5%;
-  position: relative;
-  top:0;
-}
-
-/*CSS de la page profil*/
-
-header nav {
-	width:100%;
-	height:3em;
-  font-size: 1rem;
-  z-index: 800;
-  background-color: white;
-  position: fixed;
-}
-
-header nav div i {
-  position: fixed;
-  top: 0;
-  left:0;
-  margin:1rem;
-}
-
-header nav p {
-  width:100%;
-  position: fixed;
-  text-align: center;
-}
-
-/*Flex du champ de recherche et du toggle*/
-.loupe {
-	width:100%;
-  margin-left: 5%;
-  display:flex;
-	flex-flow:row nowrap;
-	height:auto;
-  justify-content: space-between;
-  margin: 0.5em 0 0 0 ;
-}
-
-/*CSS de la page custom search*/
-/*bouton toggle carte-liste (inactif)*/
-.toggle {
-  float:right;
-  position: absolute;
-}
-
-.toggle.ios, .toggle-on.ios, .toggle-off.ios {
-  border-radius: 20px;
-}
-
-.toggle.ios .toggle-handle {
-  border-radius: 20px;
-}
-
-/*sliders, mais pourquoi l'appeler maginot ?*/
-.maginot {
-	width:100%;
-  margin-left: 5%;
-  display:flex;
-	flex-flow:row nowrap;
-	height:auto;
-  justify-content: space-between;
-  margin: 1em 1em 1em 0;
-}
-
-.maginot div {
-  width:80%;
-}
-
-.maginot span {
-  width:5%;
-}
-
-h1 {
-  font-size: 1.2rem;
-  font-weight:100;
-}
-/*boutons de partage page home*/
-.btn-group {
-  overflow: auto;
-  white-space: nowrap;
-  display:flex;
-  justify-content: space-between;
-}
-/*tags thématiques de la page recherche*/
-div.scrollmenu {
-    overflow: auto;
-    display:flex;
-    white-space: nowrap;
-}
-
-div.scrollmenu button {
-    display: inline-block;
-    text-align: center;
-    margin: 0 0.1em;
-    text-decoration: none;
-  }
-
-/*champ de recherche extensible*/
-input[type=text] {
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-    width: 30%;
-}
-/* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
-    width: 60%;
-}
-
-/*récurrence*/
-footer {
-    position:fixed;
-    height:10%;
-    bottom:0;
-    left:0;
-    right:0;
-}
-input[name="menu"]{
-    display:none;
-}
-.menu {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  color: black;
-
-}
-.list{
-	width: 100%;
-	height: 56px;
-	background: rgb(143, 202, 254);
-	position: relative;
-}
-.list .link-wrap{
-	width: 100%;
-	height: 100%;
-    display: flex;
-    flex-flow:row nowrap;
-    align-items: stretch;
-    justify-content:space-around;
-}
-
-.list .link-wrap>label{
-	z-index: 999;
-	width: 25%;
-	font-size: 1.75rem;
-	cursor: pointer;
-    text-align: center;
-    margin:auto 0;
-}
-.list .link-wrap>label[for="trois"]{
-    font-size:3rem;
-    -webkit-transform: translateY(-1rem);
-    transform: translateY(-1rem);
-    background-color:rgb(143, 202, 254);
-    border-radius:50%;
-}
-.list .link-wrap>label>i {
-	-webkit-transition: all .5s ease-in-out 0s;
-	transition: all .5s ease-in-out 0s;
-}
-#un:checked ~ .list .link-wrap>label[for="un"],
-#deux:checked ~ .list .link-wrap>label[for="deux"],
-#trois:checked ~ .list .link-wrap>label[for="trois"],
-#quatre:checked ~ .list .link-wrap>label[for="quatre"],
-#cinq:checked ~ .list .link-wrap>label[for="cinq"]{
-  color: #fff;
-}
-
-.filactu h2 {
-font-weight: 1000
-}
-
-.filactu p {
-font-weight: 200
-}
-.filactu {
-background-color: #F1F9FF;
-padding: 0 0.6em ;
-margin:0.4em 0;
-font-size:0.6rem;
-}
-
-#demo{
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-}
-
-/*CSS du slider*/
-.slidecontainer {
-    width: 30%; /* Width of the outside container */
-}
-
-/* The slider itself */
-.slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 20%; /* Full-width */
-    height: 25px; /* Specified height */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-}
-
-/* Mouse-over effects */
-.slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-round {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #4CAF50; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-}
-
-.slider::-moz-range-round {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #4CAF50; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-}
-
 
 /* //////////////////////////////////// */
 /* CSS Patrick - Page Accueil et Profil */
 /* //////////////////////////////////// */
-.content {
-  display:flex;
-  flex-flow: column nowrap;
-  align-items:stretch;
-  width:90%;
-  margin:0 5%;
-  position: relative;
-  top:3em;
-}
 
 /*CSS de la page profil*/
-
-header nav {
+.profilContainer {
+    display:flex;
+    flex-flow: column nowrap;
+    align-items:stretch;
+    width:90%;
+    margin:0 5%;
+    position: relative;
+    top:3em;
+    justify-content: space-between;
+}
+.profilContainer header nav {
 	width:100%;
 	height:3em;
   font-size: 1rem;
@@ -394,21 +159,21 @@ header nav {
   position: fixed;
 }
 
-header nav div i {
+.profilContainer header nav div i {
   position: fixed;
   top: 0;
   left:0;
   margin:1rem;
 }
 
-header nav p {
+.profilContainer header nav p {
   width:100%;
   position: fixed;
   text-align: center;
 }
 
 /*Flex du champ de recherche et du toggle*/
-.loupe {
+.profilContainer .loupe {
 	width:100%;
   margin-left: 5%;
   display:flex;
@@ -420,21 +185,21 @@ header nav p {
 
 /*CSS de la page custom search*/
 /*bouton toggle carte-liste (inactif)*/
-.toggle {
+.rechercheContainer .toggle {
   float:right;
   position: absolute;
 }
 
-.toggle.ios, .toggle-on.ios, .toggle-off.ios {
+.rechercheContainer .toggle.ios, .toggle-on.ios, .toggle-off.ios {
   border-radius: 20px;
 }
 
-.toggle.ios .toggle-handle {
+.rechercheContainer .toggle.ios .toggle-handle {
   border-radius: 20px;
 }
 
 /*sliders, mais pourquoi l'appeler maginot ?*/
-.maginot {
+.rechercheContainer .maginot {
 	width:100%;
   margin-left: 5%;
   display:flex;
@@ -444,33 +209,33 @@ header nav p {
   margin: 1em 1em 1em 0;
 }
 
-.maginot div {
+.rechercheContainer .maginot div {
   width:80%;
 }
 
-.maginot span {
+.rechercheContainer .maginot span {
   width:5%;
 }
 
-h1 {
+.rechercheContainer h1 {
   font-size: 1.2rem;
   font-weight:100;
 }
 /*boutons de partage page home*/
-.btn-group {
+.homeContainer .btn-group {
   overflow: auto;
   white-space: nowrap;
   display:flex;
   justify-content: space-between;
 }
 /*tags thématiques de la page recherche*/
-div.scrollmenu {
+.rechercheContainer div.scrollmenu {
     overflow: auto;
     display:flex;
     white-space: nowrap;
 }
 
-div.scrollmenu button {
+.rechercheContainer div.scrollmenu button {
     display: inline-block;
     text-align: center;
     margin: 0 0.1em;
@@ -478,103 +243,37 @@ div.scrollmenu button {
   }
 
 /*champ de recherche extensible*/
-input[type=text] {
+.rechercheContainer input[type=text] {
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
     width: 30%;
 }
 /* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
+.rechercheContainer input[type=text]:focus {
     width: 60%;
 }
 
-/*récurrence*/
-footer {
-    position:fixed;
-    height:10%;
-    bottom:0;
-    left:0;
-    right:0;
-}
-input[name="menu"]{
-    display:none;
-}
-.menu {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  color: black;
-
-}
-.list{
-	width: 100%;
-	height: 56px;
-	background: rgb(88, 151, 245);
-	position: relative;
-}
-.list .link-wrap{
-	width: 100%;
-	height: 100%;
-    display: flex;
-    flex-flow:row nowrap;
-    align-items: stretch;
-    justify-content:space-around;
-}
-
-.list .link-wrap>label{
-	z-index: 999;
-	width: 25%;
-	font-size: 1.75rem;
-	cursor: pointer;
-    text-align: center;
-    margin:auto 0;
-}
-.list .link-wrap>label[for="trois"]{
-    font-size:3rem;
-    -webkit-transform: translateY(-1rem);
-    transform: translateY(-1rem);
-    background-color:rgb(88, 151, 245);
-    border-radius:50%;
-}
-.list .link-wrap>label>i {
-	-webkit-transition: all .5s ease-in-out 0s;
-	transition: all .5s ease-in-out 0s;
-}
-#un:checked ~ .list .link-wrap>label[for="un"],
-#deux:checked ~ .list .link-wrap>label[for="deux"],
-#trois:checked ~ .list .link-wrap>label[for="trois"],
-#quatre:checked ~ .list .link-wrap>label[for="quatre"],
-#cinq:checked ~ .list .link-wrap>label[for="cinq"]{
-  color: #fff;
-}
-
-.filactu h2 {
+.homeContainer .filactu h2, .profilContainer .filactu h2 {
 font-weight: 1000
 }
 
-.filactu p {
+.homeContainer .filactu p, .profilContainer .filactu p {
 font-weight: 200
 }
-.filactu {
+.homeContainer .filactu, .profilContainer .filactu {
 background-color: #F1F9FF;
 padding: 0 0.6em ;
 margin:0.4em 0;
 font-size:0.6rem;
 }
 
-#demo{
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-}
-
 /*CSS du slider*/
-.slidecontainer {
+.rechercheContainer .slidecontainer {
     width: 30%; /* Width of the outside container */
 }
 
 /* The slider itself */
-.slider {
+.rechercheContainer .slider {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     width: 20%; /* Full-width */
@@ -586,12 +285,12 @@ font-size:0.6rem;
 }
 
 /* Mouse-over effects */
-.slider:hover {
+.rechercheContainer .slider:hover {
     opacity: 1; /* Fully shown on mouse-over */
 }
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-round {
+.rechercheContainer .slider::-webkit-slider-round {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
     width: 25px; /* Set a specific slider handle width */
@@ -600,12 +299,57 @@ font-size:0.6rem;
     cursor: pointer; /* Cursor on hover */
 }
 
-.slider::-moz-range-round {
+.rechercheContainer .slider::-moz-range-round {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
     background: #4CAF50; /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
+/* CSS du contenu */
 
+.contenuContainer .contributeur .btn-group {
+    overflow: auto;
+    white-space: nowrap;
+    display:flex;
+    justify-content:flex-end;
+    position: relative;
+  }
+  
+  .contenuContainer .contributeur {
+    padding: 0 0.6em ;
+    margin:0.4em 0;
+    font-size:0.6rem;
+    padding: 0 0.6em ;
+    margin:0.4em 0;
+  }
+  
+  .contenuContainer .descriptif {
+    padding: 0 0.6em ;
+    margin:0.4em 0;
+    font-size:0.7rem;
+  }
+  
+  .contenuContainer .descriptif .btn-group {
+    overflow: auto;
+    white-space: nowrap;
+    display:flex;
+    justify-content: space-between;
+    font-size:0.8rem;
+  
+  }
+  
+  .contenuContainer .descriptif .btn-group.coucou{
+  justify-content: flex-end;
+  }
+  
+  .contenuContainer .fa-user-circle{
+    font-size: 1rem;
+    margin:auto 0.5em;
+  }
+  .contenuContainer iframe {
+    width:100%;
+  height:auto;
+  }
+/*CSS de la page profil*/
 
 
