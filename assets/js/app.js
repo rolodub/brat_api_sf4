@@ -1,11 +1,22 @@
 import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Accueil from './components/Accueil.vue';
 
-import Example from './components/Example'
+Vue.use( VueRouter );
 
-/**
- * Create a fresh Vue Application instance
- */
-new Vue({
-    el: '#app',
-    components: {Example}
+
+// const Foo = { component: Example };
+const Bar = { template: '<div>bar</div>' };
+
+const routes = [
+    { path: '/foo',icon: 'fa fa-home', component: Accueil },
+    { path: '/bar', component: Bar }
+];
+
+const router = new VueRouter({
+    routes
 });
+
+const app = new Vue({
+    router
+}).$mount('#app');
