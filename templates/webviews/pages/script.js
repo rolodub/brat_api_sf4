@@ -15,6 +15,9 @@ var Profil = {
 var Contribuer = {
     template: '#contribuer'
 };
+var Contenu = {
+    template: '#contenu'
+};
 var Nope = {
     template: '#nope'
 };
@@ -68,6 +71,10 @@ var routes = [{
     icon: 'fa fa-plus',
     path: '/contribuer',
     component: Contribuer
+}, {
+    name: 'contenu',
+    path: '/contenu',
+    component: Contenu
 }, {
     name: 'oups',
     path: '/erreur',
