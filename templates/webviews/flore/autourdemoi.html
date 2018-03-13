@@ -19,9 +19,8 @@
         crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd2p7r0jh2apbfUvJWw1THUJTbr0wAziI&callback=initMap" type="text/javascript"></script>
     <script async type="text/javascript">
-        <title>Autour de moi</title>
-        var lat = 48.852969;
-        var lon = 2.349903;
+        var lat = 48.830414;
+        var lon = 2.333333;
         var map = null;
         function initMap() {
             map = new google.maps.Map(document.getElementById("map"), {
@@ -39,13 +38,21 @@
             }
 
             var contentString1 = '<div id="content">' + '<div id="siteNotice">' + '</div>' + '<h1 id="firstHeading" class="firstHeading">test</h1>' + '<div id="bodyContent">' + '<p><b>test</b>.</p>' + '<p>Attribution: Google, <a href="https://www.google.fr">' + 'https://www.google.fr</a> ' + '(last visited June 22, 2009).</p>' + '</div>' + '</div>';
-            var infowindow = new google.maps.InfoWindow({ content: contentString1, map: map , maxWidth:200});
+            var infowindow = new google.maps.InfoWindow({ content: contentString1 }, { map: map });
             var image = {
-                         path: "M27.648-41.399q0-3.816-2.7-6.516t-6.516-2.7-6.516 2.7-2.7 6.516 2.7 6.516 6.516 2.7 6.516-2.7 2.7-6.516zm9.216 0q0 3.924-1.188 6.444l-13.104 27.864q-.576 1.188-1.71 1.872t-2.43.684-2.43-.684-1.674-1.872l-13.14-27.864q-1.188-2.52-1.188-6.444 0-7.632 5.4-13.032t13.032-5.4 13.032 5.4 5.4 13.032z",
-                         fillColor: '#2699FB',
-                         fillOpacity: 1,
-                         strokeWeight: 0,
-                         scale: 0.65 }};
+                path: "M27.648-41.399q0-3.816-2.7-6.516t-6.516-2.7-6.516 2.7-2.7 6.516 2.7 6.516 6.516 2.7 6.516-2.7 2.7-6.516zm9.216 0q0 3.924-1.188 6.444l-13.104 27.864q-.576 1.188-1.71 1.872t-2.43.684-2.43-.684-1.674-1.872l-13.14-27.864q-1.188-2.52-1.188-6.444 0-7.632 5.4-13.032t13.032-5.4 13.032 5.4 5.4 13.032z",
+                fillColor: '#2699FB',
+                fillOpacity: 1,
+                strokeWeight: 0,
+                scale: 0.65
+            };
+            var boussole ={
+            	path: "M14,0C6.268,0,0,6.268,0,14s6.268,14,14,14s14-6.268,14-14S21.732,0,14,0z M14,26C7.373,26,2,20.627,2,14S7.373,2,14,2s12,5.373,12,12S20.627,26,14,26zM6.222,21.777c0,0,8.838-3.183,10.606-4.949c1.768-1.768,4.949-10.606,4.949-10.606s-8.838,3.183-10.605,4.95S6.222,21.777,6.222,21.777z M12.586,12.586l2.828,2.828c0.707,0.707-6.363,3.535-6.363,3.535S11.879,11.879,12.586,12.586z", 
+            	fillColor: '#2699FB',
+                fillOpacity: 1,
+                strokeWeight: 0,
+                scale: 0.8
+            };
             
             var tableau = [];
 
@@ -121,9 +128,16 @@
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
-
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('On vous a trouvé!');
+                   var marker = new google.maps.Marker({
+                    position: pos,
+                    title: 'Cliquer pour en savoir plus',
+                    label : 'Vous êtes ici',
+                    map: map,
+                    content: contentString1,
+                    icon: boussole, 
+                    draggable : false,
+                });
+                tableau.push(marker);
                     map.setCenter(pos);
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
@@ -137,8 +151,8 @@
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             infoWindow.setPosition(pos);
             infoWindow.setContent(browserHasGeolocation ?
-                'Error: The Geolocation service failed.' :
-                'Error: Your browser doesn\'t support geolocation.');
+                'Erreur: La géolocalisation a échoué.' :
+                'Erreur: Votre navigateur ne prend pas en charge la géolocalisation.');
 
         }
 
@@ -161,6 +175,7 @@
             margin: 0;
         }
     </style>
+    <title>Autour de moi</title>
 </head>
 
 <body>

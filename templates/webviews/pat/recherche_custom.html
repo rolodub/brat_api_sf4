@@ -15,59 +15,51 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
   <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-  <style>
-      #map {
-        height: 50%;
-      }
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-  </style>
+  <script src="script.js"></script>
+
   <script>
-    function initMap() {
+      function initMap() {
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 48.853, lng: 2.348},
-      zoom: 15,
-      streetViewControl:false,
-      fullscreenControl:false,
-      zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.SMALL,
-            position: google.maps.ControlPosition.RIGHT_TOP
-        },
-    });
-    var infoWindow = new google.maps.InfoWindow({map: map});
-
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('On vous a trouvé !');
-        map.setCenter(pos);
-      }, function() {
-        handleLocationError(true, infoWindow, map.getCenter());
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 48.853, lng: 2.348},
+        zoom: 15,
+        streetViewControl:false,
+        fullscreenControl:false,
+        zoomControlOptions: {
+              style: google.maps.ZoomControlStyle.SMALL,
+              position: google.maps.ControlPosition.RIGHT_TOP
+          },
       });
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
+      var infoWindow = new google.maps.InfoWindow({map: map});
+
+      // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('On vous a trouvé !');
+          map.setCenter(pos);
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
     }
-  }
-  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-                          'Erreur: La géolocalisation a échoué.' :
-                          'Erreur: Votre navigateur ne supporte pas la géolocalisation.');
-  }
-  </script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd2p7r0jh2apbfUvJWw1THUJTbr0wAziI&callback=initMap"></script>
-</head>
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ?
+                            'Erreur: La géolocalisation a échoué.' :
+                            'Erreur: Votre navigateur ne supporte pas la géolocalisation.');
+    }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd2p7r0jh2apbfUvJWw1THUJTbr0wAziI&callback=initMap"></script>
+  </head>
 <body>
   <section id="map"></section>
   <section class="content">
@@ -80,64 +72,28 @@
       <div><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></div>
       <span><i class="fa fa-thumbs-up"></i></span>
     </div>
-    <div class="maginot">
-      <span class="btn-group" role="group" aria-label="..."><i class="fa fa-search-minus "></i></span>
-      <div><input type="range" min="1" max="100" value="50" class="slider" id="myRange2"></div>
-      <span><i class="fa fa-search-plus"></i></span>
-    </div>
-    <div id="demo"><p>Likes : </p><div id="demo1"></div><p>Mètres : </p><div id="demo2"></div></div>
     <script>
-      <!-- $ document.ready-->
+    $( document ).ready(function() {
       var slider = document.getElementById("myRange");
       var slider1 = document.getElementById("myRange2");
-      var output = document.getElementById("demo1");
-      var output1 = document.getElementById("demo2");
 
       output.innerHTML = slider.value; // Display the default slider value
       slider.oninput = function() {    // Update the current slider value (each time you drag the slider handle)
           output.innerHTML = this.value;
       }
-      output1.innerHTML = slider1.value; // Display the default slider value
-      slider1.oninput = function() {    // Update the current slider value (each time you drag the slider handle)
-          output1.innerHTML = this.value;
-      }
+    });
     </script>
     <div class="scrollmenu">
       <button type="button" class="btn btn-default">street art</button>
       <button type="button" class="btn btn-primary">histoire</button>
       <button type="button" class="btn btn-primary">architecture</button>
-      <button type="button" class="btn btn-primary">XIX° siècle</button>
+      <button type="button" class="btn btn-default">XIX° siècle</button>
       <button type="button" class="btn btn-primary">Paris coquin</button>
       <button type="button" class="btn btn-primary">insolite</button>
     </div>
   </section>
   <footer>
-    <nav class="menu">
-      <input type="radio" name="menu" id="un" checked>
-      <input type="radio" name="menu" id="deux">
-      <input type="radio" name="menu" id="trois">
-      <input type="radio" name="menu" id="quatre">
-      <input type="radio" name="menu" id="cinq">
-      <div class="list">
-        <div class="link-wrap">
-          <label for="un">
-            <i class="fa fa-home"></i>
-          </label>
-          <label for="deux">
-            <i class="fa fa-search"></i>
-          </label>
-          <label for="trois">
-            <i class="fa fa-map-marker"></i>
-          </label>
-          <label for="quatre">
-            <i class="fa fa-user"></i>
-          </label>
-          <label for="cinq">
-            <i class="fa fa-plus"></i>
-          </label>
-        </div>
-      </div>
-    </nav>
+    <nav class="navbar fixed-bottom navbar-light bg-light menu"></nav>
   </footer>
 </body>
 </html>
