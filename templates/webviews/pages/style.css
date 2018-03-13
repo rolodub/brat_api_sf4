@@ -1,0 +1,611 @@
+/* ////////// */
+/* CSS global */
+/* ////////// */
+html {
+    font-size:20px; 
+    height:100%;
+}
+body {
+    font-family: 'Ubuntu', sans-serif;
+    height:100%;
+}
+body, header, nav, section, footer {
+    width:100%;
+    margin:0;
+    padding:0;
+}
+#app {
+    position:relative;
+    width: 100%;
+    height:100%;
+    padding-bottom:2rem;
+    overflow:scroll;
+}
+.navbar{
+	width: 100%;
+	height: 2rem;
+	background: rgb(88, 151, 245);
+    position: fixed;
+    bottom:0;
+    margin-bottom:0;
+    border-radius:0;
+	z-index: 999;
+}
+.navbar-nav{
+	width: 100%;
+    height: 100%;
+    margin:0;
+    padding: 0;
+    display: flex;
+    flex-flow:row nowrap;
+    align-items: stretch;
+    justify-content:space-around;
+    list-style:none;
+}
+.nav-item {
+	width: 20%;
+	font-size: 1.75rem;
+	cursor: pointer;
+    text-align: center;
+    margin:auto 0;
+}
+.nav-item>i {
+	-webkit-transition: all .5s ease-in-out 0s;
+	transition: all .5s ease-in-out 0s;
+}
+a.active {
+  color: #fff;
+}
+/* ////////////////////////////// */
+/* CSS Tanguy - Page contribution */
+/* ////////////////////////////// */
+section.content {
+    display:flex;
+    flex-flow: column nowrap;
+    align-items:stretch;
+    background:url('images/google-maps.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:100%;
+}
+.content a.retour {
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    margin:0.5rem;
+    padding:0.5rem;
+}
+.content h1 {
+    font-size:1rem;
+    width:100%;
+    text-align:center;
+    color: rgb(88, 151, 245);
+}
+.content ul {
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: space-around;
+    width:100%;
+    margin:1rem 0;
+    list-style: none;
+    padding:0;
+}
+.content ul li {
+    text-align:center;
+    display:flex;
+    flex-flow:column wrap;
+    justify-content: space-around; 
+    color:rgb(88, 151, 245);
+}
+.content ul i {
+    font-size:1.5rem;
+    padding:1rem;
+    width:4rem;
+    height:4rem;
+    border:0.25rem solid rgb(88, 151, 245);
+    background-color:rgba(255,255,255,1);
+    border-radius:50%; 
+}
+.content .disclaimer {
+    position:absolute;
+    background-color:rgba(255,255,255,1);
+    width:90%;
+    bottom:15%;
+    text-align:center;
+    margin:0 5%;
+    padding:2.5%;
+}
+.content .disclaimer p {
+    color:rgba(88, 151, 245, 0.8);
+}
+p.location {
+    color:rgba(88, 151, 245, 1);
+    font-weight:700;
+}
+.content .disclaimer hr {
+    width:75%;
+    color:rgb(155,155,155);
+}
+
+/* ////////////////////////////// */
+/* CSS Flore - Page Autour de moi */
+/* ////////////////////////////// */
+
+#map {
+    height:100%;
+}
+.content {
+  display:flex;
+  flex-flow: column nowrap;
+  align-items:stretch;
+  width:90%;
+  margin:0 5%;
+  position: relative;
+  top:0;
+}
+
+/*CSS de la page profil*/
+
+header nav {
+	width:100%;
+	height:3em;
+  font-size: 1rem;
+  z-index: 800;
+  background-color: white;
+  position: fixed;
+}
+
+header nav div i {
+  position: fixed;
+  top: 0;
+  left:0;
+  margin:1rem;
+}
+
+header nav p {
+  width:100%;
+  position: fixed;
+  text-align: center;
+}
+
+/*Flex du champ de recherche et du toggle*/
+.loupe {
+	width:100%;
+  margin-left: 5%;
+  display:flex;
+	flex-flow:row nowrap;
+	height:auto;
+  justify-content: space-between;
+  margin: 0.5em 0 0 0 ;
+}
+
+/*CSS de la page custom search*/
+/*bouton toggle carte-liste (inactif)*/
+.toggle {
+  float:right;
+  position: absolute;
+}
+
+.toggle.ios, .toggle-on.ios, .toggle-off.ios {
+  border-radius: 20px;
+}
+
+.toggle.ios .toggle-handle {
+  border-radius: 20px;
+}
+
+/*sliders, mais pourquoi l'appeler maginot ?*/
+.maginot {
+	width:100%;
+  margin-left: 5%;
+  display:flex;
+	flex-flow:row nowrap;
+	height:auto;
+  justify-content: space-between;
+  margin: 1em 1em 1em 0;
+}
+
+.maginot div {
+  width:80%;
+}
+
+.maginot span {
+  width:5%;
+}
+
+h1 {
+  font-size: 1.2rem;
+  font-weight:100;
+}
+/*boutons de partage page home*/
+.btn-group {
+  overflow: auto;
+  white-space: nowrap;
+  display:flex;
+  justify-content: space-between;
+}
+/*tags thématiques de la page recherche*/
+div.scrollmenu {
+    overflow: auto;
+    display:flex;
+    white-space: nowrap;
+}
+
+div.scrollmenu button {
+    display: inline-block;
+    text-align: center;
+    margin: 0 0.1em;
+    text-decoration: none;
+  }
+
+/*champ de recherche extensible*/
+input[type=text] {
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    width: 30%;
+}
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 60%;
+}
+
+/*récurrence*/
+footer {
+    position:fixed;
+    height:10%;
+    bottom:0;
+    left:0;
+    right:0;
+}
+input[name="menu"]{
+    display:none;
+}
+.menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: black;
+
+}
+.list{
+	width: 100%;
+	height: 56px;
+	background: rgb(143, 202, 254);
+	position: relative;
+}
+.list .link-wrap{
+	width: 100%;
+	height: 100%;
+    display: flex;
+    flex-flow:row nowrap;
+    align-items: stretch;
+    justify-content:space-around;
+}
+
+.list .link-wrap>label{
+	z-index: 999;
+	width: 25%;
+	font-size: 1.75rem;
+	cursor: pointer;
+    text-align: center;
+    margin:auto 0;
+}
+.list .link-wrap>label[for="trois"]{
+    font-size:3rem;
+    -webkit-transform: translateY(-1rem);
+    transform: translateY(-1rem);
+    background-color:rgb(143, 202, 254);
+    border-radius:50%;
+}
+.list .link-wrap>label>i {
+	-webkit-transition: all .5s ease-in-out 0s;
+	transition: all .5s ease-in-out 0s;
+}
+#un:checked ~ .list .link-wrap>label[for="un"],
+#deux:checked ~ .list .link-wrap>label[for="deux"],
+#trois:checked ~ .list .link-wrap>label[for="trois"],
+#quatre:checked ~ .list .link-wrap>label[for="quatre"],
+#cinq:checked ~ .list .link-wrap>label[for="cinq"]{
+  color: #fff;
+}
+
+.filactu h2 {
+font-weight: 1000
+}
+
+.filactu p {
+font-weight: 200
+}
+.filactu {
+background-color: #F1F9FF;
+padding: 0 0.6em ;
+margin:0.4em 0;
+font-size:0.6rem;
+}
+
+#demo{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+/*CSS du slider*/
+.slidecontainer {
+    width: 30%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 20%; /* Full-width */
+    height: 25px; /* Specified height */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-round {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-round {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+
+/* //////////////////////////////////// */
+/* CSS Patrick - Page Accueil et Profil */
+/* //////////////////////////////////// */
+.content {
+  display:flex;
+  flex-flow: column nowrap;
+  align-items:stretch;
+  width:90%;
+  margin:0 5%;
+  position: relative;
+  top:3em;
+}
+
+/*CSS de la page profil*/
+
+header nav {
+	width:100%;
+	height:3em;
+  font-size: 1rem;
+  z-index: 800;
+  background-color: white;
+  position: fixed;
+}
+
+header nav div i {
+  position: fixed;
+  top: 0;
+  left:0;
+  margin:1rem;
+}
+
+header nav p {
+  width:100%;
+  position: fixed;
+  text-align: center;
+}
+
+/*Flex du champ de recherche et du toggle*/
+.loupe {
+	width:100%;
+  margin-left: 5%;
+  display:flex;
+	flex-flow:row nowrap;
+	height:auto;
+  justify-content: space-between;
+  margin: 0.5em 0 0 0 ;
+}
+
+/*CSS de la page custom search*/
+/*bouton toggle carte-liste (inactif)*/
+.toggle {
+  float:right;
+  position: absolute;
+}
+
+.toggle.ios, .toggle-on.ios, .toggle-off.ios {
+  border-radius: 20px;
+}
+
+.toggle.ios .toggle-handle {
+  border-radius: 20px;
+}
+
+/*sliders, mais pourquoi l'appeler maginot ?*/
+.maginot {
+	width:100%;
+  margin-left: 5%;
+  display:flex;
+	flex-flow:row nowrap;
+	height:auto;
+  justify-content: space-between;
+  margin: 1em 1em 1em 0;
+}
+
+.maginot div {
+  width:80%;
+}
+
+.maginot span {
+  width:5%;
+}
+
+h1 {
+  font-size: 1.2rem;
+  font-weight:100;
+}
+/*boutons de partage page home*/
+.btn-group {
+  overflow: auto;
+  white-space: nowrap;
+  display:flex;
+  justify-content: space-between;
+}
+/*tags thématiques de la page recherche*/
+div.scrollmenu {
+    overflow: auto;
+    display:flex;
+    white-space: nowrap;
+}
+
+div.scrollmenu button {
+    display: inline-block;
+    text-align: center;
+    margin: 0 0.1em;
+    text-decoration: none;
+  }
+
+/*champ de recherche extensible*/
+input[type=text] {
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    width: 30%;
+}
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 60%;
+}
+
+/*récurrence*/
+footer {
+    position:fixed;
+    height:10%;
+    bottom:0;
+    left:0;
+    right:0;
+}
+input[name="menu"]{
+    display:none;
+}
+.menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: black;
+
+}
+.list{
+	width: 100%;
+	height: 56px;
+	background: rgb(88, 151, 245);
+	position: relative;
+}
+.list .link-wrap{
+	width: 100%;
+	height: 100%;
+    display: flex;
+    flex-flow:row nowrap;
+    align-items: stretch;
+    justify-content:space-around;
+}
+
+.list .link-wrap>label{
+	z-index: 999;
+	width: 25%;
+	font-size: 1.75rem;
+	cursor: pointer;
+    text-align: center;
+    margin:auto 0;
+}
+.list .link-wrap>label[for="trois"]{
+    font-size:3rem;
+    -webkit-transform: translateY(-1rem);
+    transform: translateY(-1rem);
+    background-color:rgb(88, 151, 245);
+    border-radius:50%;
+}
+.list .link-wrap>label>i {
+	-webkit-transition: all .5s ease-in-out 0s;
+	transition: all .5s ease-in-out 0s;
+}
+#un:checked ~ .list .link-wrap>label[for="un"],
+#deux:checked ~ .list .link-wrap>label[for="deux"],
+#trois:checked ~ .list .link-wrap>label[for="trois"],
+#quatre:checked ~ .list .link-wrap>label[for="quatre"],
+#cinq:checked ~ .list .link-wrap>label[for="cinq"]{
+  color: #fff;
+}
+
+.filactu h2 {
+font-weight: 1000
+}
+
+.filactu p {
+font-weight: 200
+}
+.filactu {
+background-color: #F1F9FF;
+padding: 0 0.6em ;
+margin:0.4em 0;
+font-size:0.6rem;
+}
+
+#demo{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+/*CSS du slider*/
+.slidecontainer {
+    width: 30%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 20%; /* Full-width */
+    height: 25px; /* Specified height */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-round {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-round {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+
+
