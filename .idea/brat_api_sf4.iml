@@ -83,5 +83,7 @@
     <orderEntry type="library" name="axios" level="application" />
     <orderEntry type="library" name="jquery-3.3.1" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="vue" level="application" />
+    <orderEntry type="library" name="vue-router" level="application" />
   </component>
 </module>

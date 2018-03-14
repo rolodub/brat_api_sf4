@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Découvrez et redécouvrez votre ville !" />
   <meta name="keywords" content="" />
   <meta name="author" content="Bratislaboys" />
-  <title>Bratislava — Accueil</title>
+  <title>Bratislava — Accueil</title>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" href="styletest.css" type="text/css">
+  <link rel="stylesheet" href="style.css" type="text/css">
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="script.js"></script>
@@ -35,7 +37,49 @@
               position: google.maps.ControlPosition.RIGHT_TOP
           },
       });
+      var lieux = {
+                "Barricade Barrault": { "lat": 48.8262943, "lon": 2.3464188000000377, "content":"Barricade" },
+                "Télécom Evolution": { "lat": 48.830414, "lon": 2.335807499999987, "content":"Télécom" },
+                "Butte aux cailles": { "lat": 48.82719119999999, "lon": 2.349079500000016, "content":"Butte aux cailles" },
+            }
       var infoWindow = new google.maps.InfoWindow({map: map});
+      
+      var boussole ={
+            	path: "M14,0C6.268,0,0,6.268,0,14s6.268,14,14,14s14-6.268,14-14S21.732,0,14,0z M14,26C7.373,26,2,20.627,2,14S7.373,2,14,2s12,5.373,12,12S20.627,26,14,26zM6.222,21.777c0,0,8.838-3.183,10.606-4.949c1.768-1.768,4.949-10.606,4.949-10.606s-8.838,3.183-10.605,4.95S6.222,21.777,6.222,21.777z M12.586,12.586l2.828,2.828c0.707,0.707-6.363,3.535-6.363,3.535S11.879,11.879,12.586,12.586z", 
+            	fillColor: '#2699FB',
+                fillOpacity: 1,
+                strokeWeight: 0,
+                scale: 0.8
+            };
+       var image = {
+                path: "M27.648-41.399q0-3.816-2.7-6.516t-6.516-2.7-6.516 2.7-2.7 6.516 2.7 6.516 6.516 2.7 6.516-2.7 2.7-6.516zm9.216 0q0 3.924-1.188 6.444l-13.104 27.864q-.576 1.188-1.71 1.872t-2.43.684-2.43-.684-1.674-1.872l-13.14-27.864q-1.188-2.52-1.188-6.444 0-7.632 5.4-13.032t13.032-5.4 13.032 5.4 5.4 13.032z",
+                fillColor: '#2699FB',
+                fillOpacity: 1,
+                strokeWeight: 0,
+                scale: 0.65
+            };
+    	var tableau = [];
+            for (lieu in lieux) {
+                var marker = new google.maps.Marker({
+                    position: { lat: lieux[lieu].lat, lng: lieux[lieu].lon },
+                    title: 'Cliquer pour en savoir plus',
+                    map: map,
+                    icon: image, 
+                    draggable : false,
+                });
+                var content = lieux[lieu].content; 
+                tableau.push(marker);
+            }
+            
+            tableau.forEach(element => {
+                element.addListener('click', function () {
+                    infoWindow.open(map, element);
+                    infoWindow.setContent(content);
+                });
+            });
+            map.addListener('click', function (e) {
+                placeMarkerAndPanTo(e.latLng, map);
+            });
   
       // Try HTML5 geolocation.
       if (navigator.geolocation) {
@@ -44,6 +88,13 @@
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
+          var marker = new google.maps.Marker({
+                    position: pos,
+                    title: 'Cliquer pour en savoir plus',
+                    map: map,
+                    icon: boussole, 
+                    draggable : false,
+                });
   
           infoWindow.setPosition(pos);
           infoWindow.setContent('On vous a trouvé !');
@@ -71,7 +122,7 @@
     <h1>ACTUALITÉS</h1>
     <div class="filactu">
       <h2>Un contenu à découvrir à côté de chez vous<h2>
-      <p>Dans la rubrique architecture par <span><i>La Commune</i></span>Soyez le premier à le noter !</p>
+      <p>Dans la rubrique architecture par <span><i>La Commune,</i></span> soyez le premier à le noter !</p>
       <div class="btn-group" role="group" aria-label="...">
         <i class="fa fa-heart"> 43</i>
         <i class="fa fa-commenting"> 98</i>
@@ -81,7 +132,7 @@
     </div>
     <br>
     <div class="filactu">
-      <h2>Une nouvelle rubrique « Paris coquin » à découvrir<h2>
+      <h2>Une nouvelle rubrique « Paris coquin » à découvrir<h2>
       <p>Il n’y a pas que Pigalle en quartier chaud à Paris. Redécouvrez Paris à travers les époques et les lieux dans cet itinéraire thématique très hot.</p>
       <div class="btn-group" role="group" aria-label="...">
         <i class="fa fa-heart"> 43</i>
