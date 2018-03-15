@@ -1,24 +1,52 @@
 <template>
-    <div type="x-template" id="recherche">
-    <div>
-        <div class="card">
-            <img class="card-img-top" src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?dpr=1&auto=compress,format&fit=crop&w=1200&h=600&q=60&cs=tinysrgb&crop=" alt="Card image cap">
-            <div class="card-block">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <router-link :to="{name: 'nope'}" class="btn btn-primary">Go somewhere</router-link>
-            </div>
-        </div>
-    </div>
-</div>
+    <ul v-if="posts && posts.length">
+        <li v-for="post of posts">
+            <p>{{post.pict_url}}</p>
+            <p><strong>{{post.nom}}</strong></p>
+            <p>{{post.description}}</p>
+            <p>{{post.latitude}}</p>
+            <p>{{post.longitude}}</p>
+        </li>
+    </ul>
+
+    <ul v-else-if="errors && errors.length">
+        <li v-for="error of errors">
+            {{error.message}}
+        </li>
+    </ul>
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
-        name: "rechercher"
+        name: "rechercher",
+        data() {
+            return {
+                posts: [],
+                errors: []
+            }
+        },
+
+        // Fetches posts when the component is created.
+        created() {
+            axios.get(`http://127.0.0.1:8000/api/posts`)
+                .then(response => {
+                    // JSON responses are automatically parsed.
+                    this.posts = response.data['hydra:member']
+                })
+                .catch(e => {
+                    this.errors.push(e)
+                })
+
+            // async / await version (created() becomes async created())
+            //
+            // try {
+            //   const response = await axios.get(`http://jsonplaceholder.typicode.com/posts`)
+            //   this.posts = response.data
+            // } catch (e) {
+            //   this.errors.push(e)
+            // }
+        }
     }
 </script>
-
-<style scoped>
-
-</style>

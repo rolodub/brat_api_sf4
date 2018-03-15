@@ -28,6 +28,54 @@ class Post
     }
 
     /**
+     * @return mixed
+     */
+    public function getContribComments()
+    {
+        return $this->contribComments;
+    }
+
+    /**
+     * @param mixed $contribComments
+     */
+    public function setContribComments($contribComments): void
+    {
+        $this->contribComments = $contribComments;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPostCategory()
+    {
+        return $this->postCategory;
+    }
+
+    /**
+     * @param mixed $postCategory
+     */
+    public function setPostCategory($postCategory): void
+    {
+        $this->postCategory = $postCategory;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPostMedia()
+    {
+        return $this->postMedia;
+    }
+
+    /**
+     * @param mixed $postMedia
+     */
+    public function setPostMedia($postMedia): void
+    {
+        $this->postMedia = $postMedia;
+    }
+
+    /**
      * @param mixed $id
      */
     public function setId($id): void
@@ -94,6 +142,21 @@ class Post
      */
 
     public $description;
+    /**
+     * @ORM\Column(type="string")
+     */
+
+    public $latitude;
+    /**
+     * @ORM\Column(type="string")
+     */
+
+    public $longitude;
+    /**
+     * @ORM\Column(type="string")
+     */
+
+    public $pict_url;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")

@@ -9,7 +9,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
  * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\LikeRepository")
  */
-class Like
+class LikeIt
 {
     /**
      * @ORM\Id

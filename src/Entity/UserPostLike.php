@@ -30,7 +30,7 @@ class UserPostLike
 
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Like", inversedBy="postLike")
+     * @ORM\ManyToOne(targetEntity="LikeIt", inversedBy="postLike")
      * @ORM\JoinColumn(name="post_id", referencedColumnName="id", nullable=false)
      */
     protected $postLike;
