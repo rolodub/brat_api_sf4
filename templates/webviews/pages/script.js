@@ -1,5 +1,8 @@
 $(document).ready(function() {
-// 1. Define route components.
+$('.close-alert').click(function(){
+    $('.disclaimer').hide();
+});
+    // 1. Define route components.
 var Accueil = {
     template: '#accueil'
 };
