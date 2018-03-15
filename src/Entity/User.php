@@ -66,12 +66,44 @@ class User implements UserInterface, \Serializable
     protected $password;
 
     /**
+     * @return mixed
+     */
+    public function getContribComments()
+    {
+        return $this->contribComments;
+    }
+
+    /**
+     * @param mixed $contribComments
+     */
+    public function setContribComments($contribComments): void
+    {
+        $this->contribComments = $contribComments;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPostLike()
+    {
+        return $this->postLike;
+    }
+
+    /**
+     * @param mixed $postLike
+     */
+    public function setPostLike($postLike): void
+    {
+        $this->postLike = $postLike;
+    }
+
+    /**
      * @ORM\Column(type="string", length=60, unique=true)
      */
     protected $email;
 
     /**
-     * @ORM\OneToMany(targetEntity="Post", mappedBy="user", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="users", cascade={"persist"})
      */
     protected $posts;
 
@@ -89,7 +121,6 @@ class User implements UserInterface, \Serializable
 
     private $salt;
     private $roles;
-    private $product;
 
     /**
 

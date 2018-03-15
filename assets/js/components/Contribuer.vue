@@ -9,12 +9,12 @@
             <li><i class="fa fa-camera" data-toggle="modal" data-target="#Modal-3"></i><p>Vidéo</p></li>
             <li><i class="fa fa-ellipsis-h" data-toggle="modal" data-target="#Modal-4"></i><p>Plus</p></li>
         </ul>
-        <div class="alert alert-info disclaimer" role="alert">
-            <p class="location"></p>
-            <p>Est-ce bien l'adresse à laquelle vous souhaitez déposer un contenu ?</p>
-            <hr>
-            <button class="alert-link close-alert">ok</button>
-        </div>
+        <!--<div class="alert alert-info disclaimer" role="alert">-->
+            <!--<p class="location"></p>-->
+            <!--<p>Est-ce bien l'adresse à laquelle vous souhaitez déposer un contenu ?</p>-->
+            <!--<hr>-->
+            <!--<button class="alert-link close-alert">ok</button>-->
+        <!--</div>-->
 
             <div class="modal fade" id="Modal-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
