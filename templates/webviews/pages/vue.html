@@ -23,6 +23,7 @@
     
 <div id="app">
     <routing></routing>
+    <div class="logo"><img src="images/logo.png"></div>
     <div class="container pt-3 pb-3">
         <router-view></router-view>
     </div>
@@ -140,11 +141,13 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <input type="textarea" v-model="message" placeholder="Tapez votre texte ici ...">
+                        <textarea rows="20" v-model="message" placeholder="Tapez votre texte ici ..."></textarea>
+                        <button type="button" class="button btn-primary"><i class="fa fa-upload"> Téléverser un fichier</button>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Prévisualiser</button>
+                        <button type="button" class="btn btn-primary">Poster</button>
                     </div>
                     </div>
                 </div>
@@ -160,7 +163,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        
+                        <div class="choix-1"><button type="button" class="btn"><i class="fa fa-camera"></button></div>
+                        <div class="choix-2"><button type="button" class="btn"><i class="fa fa-upload"></button></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -181,7 +185,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="choix-1"><button type="button"><i class="fa fa-camera"></button></div>
+                        <div class="choix-2"><button type="button"><i class="fa fa-upload"></button></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
