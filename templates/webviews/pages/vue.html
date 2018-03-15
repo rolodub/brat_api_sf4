@@ -16,6 +16,7 @@
     <script src="tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd2p7r0jh2apbfUvJWw1THUJTbr0wAziI&callback=initMap" type="text/javascript"></script>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="script.js"></script>  
 </head>
 <body>
@@ -133,13 +134,13 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Déposer un texte</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <input type="textarea" v-model="message" placeholder="Tapez votre texte ici ...">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -153,13 +154,13 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel1">Déposer une image ou une photo</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -174,7 +175,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel2">Déposer une vidéo</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -244,6 +245,7 @@
     </div>
 </section>
 </script>
+<script src="main.js"></script>
 
 <script type="x-template" id="nope">
     <div class="jumbotron">
