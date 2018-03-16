@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90c8ad63-fcaa-4da8-bd9e-416efb09fe65" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/assets/js/components/Barricade.vue" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/assets/js/components/Contribution_form.vue" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/assets/css/app.css" afterPath="$PROJECT_DIR$/assets/css/app.css" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" afterPath="$PROJECT_DIR$/assets/js/app.js" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/Accueil.vue" afterPath="$PROJECT_DIR$/assets/js/components/Accueil.vue" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/Carte.vue" afterPath="$PROJECT_DIR$/assets/js/components/Carte.vue" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/Contribuer.vue" afterPath="$PROJECT_DIR$/assets/js/components/Contribuer.vue" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/GoogleMap.vue" afterPath="$PROJECT_DIR$/assets/js/components/GoogleMap.vue" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/Rechercher.vue" afterPath="$PROJECT_DIR$/assets/js/components/Rechercher.vue" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html.twig" afterPath="$PROJECT_DIR$/templates/index.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -407,7 +396,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/webviews/pages/script.js</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/webviews/pages/style.css</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/webviews/pages/vue.html</PATH>
         </FILE-GROUP>
@@ -417,8 +405,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/webviews/pages/main.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/webviews/pages/vue-camera.vue</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/webviews/pages/images/logo.png</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -559,7 +546,7 @@
       <workItem from="1520884337519" duration="9996000" />
       <workItem from="1520967173387" duration="14544000" />
       <workItem from="1521054435892" duration="18193000" />
-      <workItem from="1521139031389" duration="24458000" />
+      <workItem from="1521139031389" duration="24490000" />
     </task>
     <task id="LOCAL-00001" summary="ORM de base">
       <created>1520721385483</created>
@@ -624,11 +611,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521155973711</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="form ok">
+      <created>1521172125994</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1521172125994</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159071000" />
+    <option name="totallyTimeSpent" value="159103000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -679,7 +673,8 @@
     <MESSAGE value="carte dans vue" />
     <MESSAGE value="api début" />
     <MESSAGE value="api debut" />
-    <option name="LAST_COMMIT_MESSAGE" value="api debut" />
+    <MESSAGE value="form ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="form ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
