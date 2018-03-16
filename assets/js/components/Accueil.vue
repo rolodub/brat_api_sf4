@@ -1,6 +1,7 @@
 <template>
     <div type="x-template" id="accueil">
         <section class="content">
+
             <h1>ACTUALITÉS</h1>
             <div class="filactu">
                 <h2>Un contenu à découvrir à côté de chez vous</h2>

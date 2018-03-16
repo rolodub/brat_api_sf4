@@ -609,4 +609,57 @@ font-size:0.6rem;
 }
 
 
+.bandeau{
+    font-size : 50px;
+    background : #4483ff;
+    border-width : 20px;
+    text-align : center;
+    width : 100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+ul.liste-post li .post-image {
+    width:30%;
+    height:100%;
+    margin:0;
+    /*background:blue;*/
+}
+ ul.liste-post {
+     width:100%;
+     height:100%;
+     padding:0;
+     margin:0;
+ }
+ul.liste-post li {
+    width: 100%;
+    height:15%;
+    display:flex;
+    flex-flow: row nowrap;
+}
+ul.liste-post li .post-image img {
 
+    height:100%;
+    margin:0;
+    /*background:blue;*/
+}
+ul.liste-post li .post-description {
+    width:70%;
+    height:100%;
+    margin:0;
+    display:flex;
+    flex-flow:column nowrap;
+    /*background:green;*/
+}
+ul.liste-post li .post-description p {
+    height:30%;
+    margin:0;
+}
+ul.liste-post li .post-description p:nth-child(3), ul li .post-description p:nth-child(4) {
+    height:20%;
+    font-weight:100;
+    font-size:0.8rem;
+}
+.liste-post ul li .post-description .btn.btn-primary {
+    width:30%;
+    margin:0 10 0 auto;
+}

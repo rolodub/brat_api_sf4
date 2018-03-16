@@ -3,23 +3,30 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
+        name: "carte",
         data: function () {
             return {
-                mapName: this.name + "-map",
-                markerCoordinates: [{
-                    latitude: 42.501527,
-                    longitude: -0.1921837
-                }, {
-                    latitude: 43.505874,
-                    longitude: -0.1838486
-                }, {
-                    latitude: 45.4998973,
-                    longitude: -0.202432
-                }]
+                posts
             }
         },
+        created() {
+            axios.get(`http://127.0.0.1:8000/api/posts`)
+                .then(response => {
+                    // JSON responses are automatically parsed.
+                    this.posts = response.data['hydra:member']
+                    echo(this.posts);
+
+                })
+                .catch(e => {
+                    this.errors.push(e)
+                })
+
+        },
         mounted: function() {
+
             this.initMap();
         },
         methods: {
@@ -29,8 +36,8 @@
                     scrollwheel: false,
                     zoom: 12
                 });
-                this.markerCoordinates.forEach((coord) => {
-                    const position = new google.maps.LatLng(coord.latitude, coord.longitude);
+                this.posts.forEach((post) => {
+                    const position = new google.maps.LatLng(post.latitude, post.longitude);
                     const marker = new google.maps.Marker({
                         position,
                         map: this.map

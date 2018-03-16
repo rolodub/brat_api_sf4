@@ -4,6 +4,7 @@
         <a class="retour" href=""><i class="fa fa-chevron-left"></i></a>
         <h1>Ajouter un contenu</h1>
         <ul>
+            <router-link to="/contribution_form" class="btn btn-primary">-></router-link>
             <li><i class="fa fa-pencil" data-toggle="modal" data-target="#Modal-1"></i><p>Écrire</p></li>
             <li><i class="fa fa-photo" data-toggle="modal" data-target="#Modal-2"></i><p>Photo</p></li>
             <li><i class="fa fa-camera" data-toggle="modal" data-target="#Modal-3"></i><p>Vidéo</p></li>

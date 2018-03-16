@@ -40,7 +40,17 @@
                 currentPlace: null
             };
         },
+        created() {
+            axios.get(`http://127.0.0.1:8000/api/posts`)
+                .then(response => {
+                    // JSON responses are automatically parsed.
+                    this.posts = response.data['hydra:member']
+                })
+                .catch(e => {
+                    this.errors.push(e)
+                })
 
+        },
         mounted() {
             this.geolocate();
         },
@@ -61,6 +71,7 @@
                     this.currentPlace = null;
                 }
             },
+
             geolocate: function() {
                 navigator.geolocation.getCurrentPosition(position => {
                     this.center = {
@@ -69,6 +80,8 @@
                     };
                 });
             },
+
+
         }
     };
 </script>

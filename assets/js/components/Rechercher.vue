@@ -1,11 +1,14 @@
 <template>
-    <ul v-if="posts && posts.length">
+    <ul class="liste-post" v-if="posts && posts.length">
         <li v-for="post of posts">
-            <p>{{post.pict_url}}</p>
-            <p><strong>{{post.nom}}</strong></p>
-            <p>{{post.description}}</p>
-            <p>{{post.latitude}}</p>
-            <p>{{post.longitude}}</p>
+            <div class="post-image"><img v-bind:src="post.pict_url"></div>
+            <div class="post-description">
+                <p><strong>{{post.nom}}</strong></p>
+                <p>{{post.description}}</p>
+                <p>Latitude:{{post.latitude}}</p>
+                <p>Longitude:{{post.longitude}}</p>
+            </div>
+            <router-link to="/barricade" class="btn btn-primary">-></router-link>
         </li>
     </ul>
 
@@ -14,6 +17,7 @@
             {{error.message}}
         </li>
     </ul>
+
 </template>
 
 <script>
@@ -22,6 +26,7 @@
     export default {
         name: "rechercher",
         data() {
+
             return {
                 posts: [],
                 errors: []
